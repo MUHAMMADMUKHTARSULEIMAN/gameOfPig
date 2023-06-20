@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Game Of Pig</title>
+  <link rel="stylesheet" href="gameOfPig.css">
+  <script src="gameOfPig.js" defer></script>
+</head>
+<body>
+  <div id="container">
+    <h1 id="heading">Game of PIG</h1>
+  <p>There are two players. The player whose turn it is rolls the dice. The total of the roll is added to the current player's score, unless either die comes up as a “one”. If this happens, this player's turn is over, and it is the other player’s turn. After each roll, the current player can either roll again, (assuming a “one” was not rolled) or if the current player feels that luck is running thin, they can pass to the other player. The first player to get 30 points or higher wins. </p>
+  <br>
+  <p>Oh, and if you roll two “ones” (snake eyes), your current score gets zeroed out. So don’t do that. </p>
+  </div>
+  <div id="start">
+    <h1>Start Game</h1>
+    <button id="button">Pick a random first player, and start the game</button>
+  </div>
+  <div id="game"></div>
+  <div id="control"></div>
+  <div id="score"></div>
+</body>
+</html>
