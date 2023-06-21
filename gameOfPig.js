@@ -104,12 +104,12 @@
     const y = Math.random();
 
     if (x > y) {
-      player.innerText = 'Roll the dice for player one';
+      player.textContent = 'Roll the dice for player one';
       game.appendChild(player);
     }
 
     else if (y > x) {
-      player.innerText = 'Roll the dice for player two';
+      player.textContent = 'Roll the dice for player two';
       game.appendChild(player);
     }
     else {
