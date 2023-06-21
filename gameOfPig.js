@@ -384,8 +384,7 @@
           game.removeChild(die2);
           player.textContent = "Roll the dice for player one";
           control.appendChild(roll);
-        }, 2000);
-      }
+        }, 2000)      }
     }
   });
 
