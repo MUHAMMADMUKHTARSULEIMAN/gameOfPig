@@ -5,7 +5,6 @@
   let p = 0;
   let q = 0;
 
-
   // get relevant elements
   const start = document.querySelector('#start');
   const game = document.querySelector('#game');
@@ -36,7 +35,6 @@
   const or = document.createElement('span');
   or.append(' or ');
   
-
   // generate interface for when game starts
   button.addEventListener('click', function(e) {
     e.preventDefault;
@@ -44,57 +42,18 @@
     start.textContent = "";
     start.appendChild(heading);
     start.appendChild(quit);
-
     decideFirstPlayer();
-
     control.appendChild(roll);
-
-    
     score.appendChild(scoreX);
     score.appendChild(scoreY);
   })
 
+  const diceArray = ["one", "two", "three", "four", "five", "six"]
   // generate die faces
-  const dieOne = (i) => {
-    if(i == 1) {
-      die1.src = 'images/faceone.jpg';
-    }
-    else if(i == 2) {
-      die1.src = 'images/facetwo.jpg';
-    }
-    else if(i == 3) {
-      die1.src = 'images/facethree.jpg';
-    }
-    else if(i == 4) {
-      die1.src = 'images/facefour.jpg';
-    }
-    else if(i == 5) {
-      die1.src = 'images/facefive.jpg';
-    }
-    else {
-      die1.src = 'images/facesix.jpg';
-    }
-  }
-  
-  const dieTwo = (j) => {
-    if(j == 1) {
-      die2.src = 'images/faceone.jpg';
-    }
-    else if(j == 2) {
-      die2.src = 'images/facetwo.jpg';
-    }
-    else if(j == 3) {
-      die2.src = 'images/facethree.jpg';
-    }
-    else if(j == 4) {
-      die2.src = 'images/facefour.jpg';
-    }
-    else if(j == 5) {
-      die2.src = 'images/facefive.jpg';
-    }
-    else {
-      die2.src = 'images/facesix.jpg';
-    }
+  const dice = (i, j) => {
+      die1.src = `images/face${diceArray[i - 1]}.jpg`;
+      die2.src = `images/face${diceArray[j - 1]}.jpg`;
+    console.log(diceArray[i - 1], diceArray[j - 1])
   }
 
   // decide first player
@@ -130,28 +89,26 @@
 
   // roll the dice for player one
   function playerOne() {
-    let i = Math.floor((Math.random() * 6) + 1);
-    let j = Math.floor((Math.random() * 6) + 1);
+    const i = Math.floor((Math.random() * 6) + 1);
+    const j = Math.floor((Math.random() * 6) + 1);
     
     // setting the image for each number of both dice
-    dieOne(i);
-    dieTwo(j);
+    dice(i, j)
 
     // set score for that round
-    setScore(i, j);
+    setScoreOne(i, j);
   }
 
   // function for player two
   function playerTwo() {
-    let i = Math.floor((Math.random() * 6) + 1);
-    let j = Math.floor((Math.random() * 6) + 1);
+    const i = Math.floor((Math.random() * 6) + 1);
+    const j = Math.floor((Math.random() * 6) + 1);
     
     // setting the image for each number of both dice
-    dieOne(i);
-    dieTwo(j);
+    dice(i, j)
 
     // set score for that round
-    setScore(i, j);
+    setScoreTwo(i, j);
     }
 
 
@@ -200,8 +157,8 @@
 
   // reroll function
   reroll.addEventListener('click', function() {
-    let i = Math.floor((Math.random() * 6) + 1);
-    let j = Math.floor((Math.random() * 6) + 1);
+    const i = Math.floor((Math.random() * 6) + 1);
+    const j = Math.floor((Math.random() * 6) + 1);
 
     control.removeChild(reroll);
     control.removeChild(or);
@@ -212,8 +169,7 @@
       game.appendChild(player);
 
       // setting the image for each number of both dice
-      dieOne(i);
-      dieTwo(j);
+      dice(i, j)
 
       // if neither die returns one
       if (i != 1 && j != 1) {
@@ -302,8 +258,7 @@
       game.appendChild(player);
 
       // setting the image for each number of both dice
-      dieOne(i);
-      dieTwo(j);
+      dice(i, j);
 
       // if neither die returns one
       if (i != 1 && j != 1) {
@@ -406,7 +361,7 @@
   });
 
   // function that handles score logic
-  const setScore = (i, j) => {
+  const setScoreOne = (i, j) => {
     // if neither die returns one
     if (i != 1 && j != 1) {
       game.appendChild(die1);
@@ -485,6 +440,90 @@
         game.removeChild(die1);
         game.removeChild(die2);
         player.textContent = "Roll the dice for player two";
+        control.appendChild(roll);
+      }, 2000);
+    }
+  }
+
+  const setScoreTwo = (i, j) => {
+    // if neither die returns one
+    if (i != 1 && j != 1) {
+      game.appendChild(die1);
+      game.appendChild(die2);
+  
+      q += (i + j);
+  
+      control.removeChild(roll);
+      control.appendChild(reroll);
+      control.appendChild(or);
+      control.appendChild(pass);
+  
+      scoreX.textContent = "First player score: " + p;
+      scoreY.textContent = "Second player score: " + q;
+  
+      score.textContent = "";
+      score.appendChild(scoreX);
+      score.appendChild(scoreY);
+  
+      if(q >= 30) {
+        game.removeChild(player);
+        control.textContent = "";
+        score.textContent = "";
+        winner.innerText = "Player two wins with " + q + " points";
+        score.appendChild(winner);
+        start.removeChild(heading);
+        start.removeChild(quit);
+        start.appendChild(startNew);
+      }
+    }
+  
+    // if both of the dice return one
+    else if (i == 1 && j == 1) {
+      game.appendChild(die1);
+      game.appendChild(die2);
+      q = 0;
+  
+      snake.innerText = "Oh snap! Snake eyes!"
+      game.appendChild(snake);
+      control.textContent = "";
+  
+      scoreX.textContent = "First player score: " + p;
+      scoreY.textContent = "Second player score: " + q;
+  
+      score.textContent = "";
+      score.appendChild(scoreX);
+      score.appendChild(scoreY);
+  
+      setTimeout(function() {
+        game.removeChild(snake);
+        game.removeChild(die1);
+        game.removeChild(die2);
+        player.textContent = "Roll the dice for player one";
+        control.appendChild(roll);
+      }, 2000);
+    }
+  
+    // if only one of them returns one
+    else if(i == 1 || j == 1) {
+      game.appendChild(die1);
+      game.appendChild(die2);
+  
+      snake.innerText = "Sorry, one of your rolls was a one; switching to player one";
+      game.appendChild(snake);
+      control.textContent = "";
+  
+      scoreX.textContent = "First player score: " + p;
+      scoreY.textContent = "Second player score: " + q;
+  
+      score.textContent = "";
+      score.appendChild(scoreX);
+      score.appendChild(scoreY);
+      
+      setTimeout(function() {
+        game.removeChild(snake);
+        game.removeChild(die1);
+        game.removeChild(die2);
+        player.textContent = "Roll the dice for player one";
         control.appendChild(roll);
       }, 2000);
     }
