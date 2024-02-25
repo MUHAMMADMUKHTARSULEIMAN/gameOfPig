@@ -25,9 +25,9 @@
   const die1 = document.createElement('img');
   const die2 = document.createElement('img');
   const scoreX = document.createElement('p');
-  scoreX.textContent = "First player score: " + p;
+  scoreX.textContent = "First player's score: " + p;
   const scoreY = document.createElement('p');
-  scoreY.textContent = "Second player score: " + q;
+  scoreY.textContent = "Second player's score: " + q;
   const pass = document.createElement('button');
   pass.append('Pass');
   const reroll = document.createElement('button');
@@ -56,7 +56,7 @@
     console.log(diceArray[i - 1], diceArray[j - 1])
   }
 
-  // decide first player
+  // decide first player's
   function decideFirstPlayer() {
     // generate variables to determine who goes first
     const x = Math.random();
@@ -119,8 +119,8 @@
       p = 0;
       q = 0;
 
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
 
       start.textContent = "";
       game.textContent = "";
@@ -140,8 +140,8 @@
     p = 0;
     q = 0;
 
-    scoreX.textContent = "First player score: " + p;
-    scoreY.textContent = "Second player score: " + q;
+    scoreX.textContent = "First player's score: " + p;
+    scoreY.textContent = "Second player's score: " + q;
 
     start.textContent = "";
     game.textContent = "";
@@ -182,8 +182,8 @@
         control.appendChild(or);
         control.appendChild(pass);
 
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -212,8 +212,8 @@
         game.appendChild(snake);
         control.textContent = "";
 
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -236,8 +236,8 @@
         game.appendChild(snake);
         control.textContent = "";
 
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -271,8 +271,8 @@
         control.appendChild(or);
         control.appendChild(pass);
 
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -301,8 +301,8 @@
         game.appendChild(snake);
         control.textContent = "";
 
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -326,8 +326,8 @@
         game.appendChild(snake);
         control.textContent = "";
         
-        scoreX.textContent = "First player score: " + p;
-        scoreY.textContent = "Second player score: " + q;
+        scoreX.textContent = "First player's score: " + p;
+        scoreY.textContent = "Second player's score: " + q;
 
         score.textContent = "";
         score.appendChild(scoreX);
@@ -374,8 +374,8 @@
       control.appendChild(or);
       control.appendChild(pass);
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
@@ -403,8 +403,8 @@
       game.appendChild(snake);
       control.textContent = "";
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
@@ -428,8 +428,8 @@
       game.appendChild(snake);
       control.textContent = "";
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
@@ -458,8 +458,8 @@
       control.appendChild(or);
       control.appendChild(pass);
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
@@ -487,8 +487,8 @@
       game.appendChild(snake);
       control.textContent = "";
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
@@ -512,8 +512,8 @@
       game.appendChild(snake);
       control.textContent = "";
   
-      scoreX.textContent = "First player score: " + p;
-      scoreY.textContent = "Second player score: " + q;
+      scoreX.textContent = "First player's score: " + p;
+      scoreY.textContent = "Second player's score: " + q;
   
       score.textContent = "";
       score.appendChild(scoreX);
